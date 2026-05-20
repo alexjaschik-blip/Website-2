@@ -527,6 +527,89 @@ a { color: inherit; }
 
 .social-sep { color: var(--sand-pale); }
 
+/* ─── Press ───────────────────────────────────────────────────────────────── */
+#press {
+  padding: 9rem 0;
+  background: var(--cream);
+}
+
+.press-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.press-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  group: press;
+}
+
+.press-thumb {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s var(--ease);
+}
+
+.press-link:hover .press-thumb { transform: scale(1.03); }
+
+.press-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 45%, rgba(12, 27, 46, 0.35) 100%);
+  transition: opacity 0.3s;
+}
+
+.press-link:hover .press-thumb::after { opacity: 0.6; }
+
+.press-thumb--placeholder {
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.press-thumb-icon {
+  font-size: 1.4rem;
+  color: rgba(201, 169, 122, 0.4);
+}
+
+.press-body { padding: 0 0.1rem; }
+
+.press-pub {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.5rem;
+}
+
+.press-lang {
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.press-body h3 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.press-link:hover .press-body h3 { color: var(--navy-light); }
+
 /* ─── Footer ──────────────────────────────────────────────────────────────── */
 footer {
   background: var(--navy);
@@ -580,7 +663,8 @@ footer {
 
   .doors-mosaic { display: none; }
 
-  .work-grid {
+  .work-grid,
+  .press-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -596,7 +680,8 @@ footer {
 
   #about, #doors, #work, #contact { padding: 5.5rem 0; }
 
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid,
+  .press-grid { grid-template-columns: 1fr; }
 
   .container { padding-inline: 1.5rem; }
   .doors-inner { padding-inline: 1.5rem; }
